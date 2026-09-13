@@ -13,7 +13,7 @@ with staff_orders as (
 
 select
     so.staff_id,
-    concat(s.first_name, ' ', s.last_name) as staff_name,
+    concat('Employé ', so.staff_id) as staff_name,
     so.store_id,
     st.store_name,
     so.total_orders,
