@@ -34,3 +34,12 @@ models:
         tests:
           - unique
           - not_null
+
+  - name: stg_sales__staffs
+    description: "Staging model for store employees."
+    columns:
+      - name: staff_id
+        description: "Primary key. Unique identifier for the staff member."
+        tests:
+          - unique
+          - not_null
