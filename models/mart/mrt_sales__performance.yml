@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: mrt_sales__performance
+    description: "{{ doc('mrt_sales__performance') }}"
+    columns:
+      - name: order_month
+        description: "First day of the month for the aggregated period."
+        tests:
+          - not_null
+      - name: store_id
+        description: "Foreign key to stg_sales__stores."
+        tests:
+          - not_null
+      - name: total_revenue
+        description: "Calculated column: net revenue after discount, summed and rounded to 2 decimals."
+      - name: avg_order_value
+        description: "Calculated column: total_revenue divided by total_orders, rounded to 2 decimals."

@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: stg_sales__orders
+    description: "Staging model for raw customer orders."
+    columns:
+      - name: order_id
+        description: "Primary key. Unique identifier for the order."
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_sales__order_items
+    description: "Staging model for individual line items within an order."
+    columns:
+      - name: order_item_id
+        description: "Primary key. Built as order_id concatenated with item_id."
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "Foreign key to stg_sales__orders."
+        tests:
+          - relationships:
+              arguments:
+                to: ref('stg_sales__orders')
+                field: order_id
+
+  - name: stg_sales__stores
+    description: "Staging model for store locations."
+    columns:
+      - name: store_id
+        description: "Primary key. Unique identifier for the store."
+        tests:
+          - unique
+          - not_null
