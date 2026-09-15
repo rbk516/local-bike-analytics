@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: mrt_sales__monthly_growth
+    description: "{{ doc('mrt_sales__monthly_growth') }}"
